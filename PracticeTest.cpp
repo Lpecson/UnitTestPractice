@@ -14,9 +14,30 @@ class PracticeTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor)
 };
 
-TEST(PracticeTest, is_simple_palindrome)
+TEST(PracticeTest, is_not_palindrome)
 {
     Practice obj;
     bool actual = obj.isPalindrome("Not a palindrome");
+    ASSERT_FALSE(actual);
+}
+
+TEST(PracticeTest, is_simple_palindrome)
+{
+    Practice obj;
+    bool actual = obj.isPalindrome("racecar");
+    ASSERT_TRUE(actual);
+}
+
+TEST(PracticeTest, is_empty_palindrome)
+{
+    Practice obj;
+    bool actual = obj.isPalindrome("");
+    ASSERT_TRUE(actual);
+}
+
+TEST(PracticeTest, is_symbol_palindrome)
+{
+    Practice obj;
+    bool actual = obj.isPalindrome("!-!");
     ASSERT_TRUE(actual);
 }
